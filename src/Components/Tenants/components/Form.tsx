@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import Input from "../../Input/Input";
 
 interface Tenant {
   firstname: string;
@@ -18,21 +19,29 @@ const Form = () => {
   console.log(errors);
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input
-        {...register("firstname", { required: "Name is required" })}
+      <Input
         type="text"
-        placeholder="Name"
+        placeholder="firstname"
+        label="Name"
+        {...register("firstname", { required: "Name is required." })}
+        error={errors.firstname?.message}
       />
-      <input
-        {...register("lastname", { required: "LastName is required" })}
+      <Input
         type="text"
-        placeholder="LastName"
+        placeholder="lastname"
+        label="LastName"
+        {...register("lastname", { required: "LastName is required." })}
+        error={errors.lastname?.message}
       />
-      <input
-        {...register("email", { required: "Email is required" })}
+
+      <Input
         type="email"
         placeholder="Email"
+        label="Email"
+        {...register("email", { required: "email is required." })}
+        error={errors.email?.message}
       />
+
       <input type="submit" />
     </form>
   );
