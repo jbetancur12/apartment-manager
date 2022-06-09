@@ -7,6 +7,7 @@ import {
 import { AiOutlineHome } from "react-icons/ai";
 import { RiParentLine, RiSettings4Line } from "react-icons/ri";
 import "./Menu.scss";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   return (
@@ -17,14 +18,14 @@ const Menu = () => {
       </a>
       <div className="Menu-items">
         <div className="Menu-items-content">
-          <a href="/" className="Menu-items-item">
+          <Link to="/" className="Menu-items-item">
             <AiOutlineHome />
             <span className="Menu-items-text">Dashboard</span>
-          </a>
-          <a href="/" className="Menu-items-item">
+          </Link>
+          <Link to="/about" className="Menu-items-item">
             <RiParentLine />
             <span className="Menu-items-text">Tenants</span>
-          </a>
+          </Link>
           <a href="/" className="Menu-items-item">
             <MdApartment />
             <span className="Menu-items-text">Apartments</span>
