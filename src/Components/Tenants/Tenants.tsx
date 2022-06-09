@@ -3,13 +3,14 @@ import Button from "../Button/Button";
 import { BsPlusLg } from "react-icons/bs";
 import { useModal } from "../../hooks/useModal";
 import Modal from "../Modal/Modal";
+import "./Tenants.scss";
 
 const Tenants = () => {
   const { isShown, toggle } = useModal();
   const content = <React.Fragment>Hey, I'm a model.</React.Fragment>;
 
   return (
-    <div>
+    <div className="Tenants">
       <Button
         label="Add Tenant"
         type="sucess"
