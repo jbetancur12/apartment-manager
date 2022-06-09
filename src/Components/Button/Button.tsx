@@ -1,6 +1,12 @@
+/**
+ * It takes in a bunch of props, and returns a button with the classnames of the props
+ * @param  - `icon` - Is this a Icon present in the button
+ * @returns A button with a label and an icon
+ */
 import "./Button.scss";
 import classnames from "classnames";
 
+/* Defining the props that the component will take in. */
 export interface Props {
   /**
    * Is this a Icon present in the button
