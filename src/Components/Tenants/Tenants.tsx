@@ -6,6 +6,7 @@ import Modal from "../Modal/Modal";
 import { Table } from "./Table";
 import { data } from "./data";
 import "./Tenants.scss";
+import Form from "./components/Form";
 
 const Tenants = () => {
   const { isShown, toggle } = useModal();
@@ -23,8 +24,8 @@ const Tenants = () => {
       <Modal
         isShown={isShown}
         hide={toggle}
-        modalContent={content}
         headerText="Hola"
+        modalContent={<Form />}
       />
       <Table data={data} />
     </div>
