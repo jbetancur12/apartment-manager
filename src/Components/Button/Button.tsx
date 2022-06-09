@@ -22,7 +22,11 @@ export interface Props {
    * How large should the button be?
    */
   size?: "xsmall" | "small" | "medium" | "large" | "xlarge";
+  /**
+   * is fullWidth?
+   */
   fullWidth?: boolean;
+  onClick?: () => void;
 }
 
 const Button: React.FC<Props> = ({
@@ -32,12 +36,14 @@ const Button: React.FC<Props> = ({
   size = "small",
   fullWidth = false,
   label = "button",
+  onClick,
 }) => {
   const typeClass = `Button_${type}`;
   const sizeClass = `Button_${size}`;
   const fullwidthClass = fullWidth ? `Button_isFullWidth` : "";
   return (
     <button
+      onClick={onClick}
       className={classnames(
         "Button",
         className,
