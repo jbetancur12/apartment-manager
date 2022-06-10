@@ -19,11 +19,13 @@ export interface Props {
   /**
    * This is the class of button, the color
    */
-  type?: string;
+  variant?: string;
   /**
    * Pass an aditional class
    */
   className?: string;
+  /** Defining the type of the button. */
+  type?: "button" | "submit" | "reset";
   /**
    * How large should the button be?
    */
@@ -37,23 +39,25 @@ export interface Props {
 
 const Button: React.FC<Props> = ({
   icon,
-  type = "primary",
+  variant = "primary",
+  type = "button",
   className = "",
   size = "small",
   fullWidth = false,
   label = "button",
   onClick,
 }) => {
-  const typeClass = `Button_${type}`;
+  const variantClass = `Button_${variant}`;
   const sizeClass = `Button_${size}`;
   const fullwidthClass = fullWidth ? `Button_isFullWidth` : "";
   return (
     <button
       onClick={onClick}
+      type={type}
       className={classnames(
         "Button",
         className,
-        typeClass,
+        variantClass,
         sizeClass,
         fullwidthClass
       )}

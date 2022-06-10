@@ -1,12 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./Modal.scss";
+import classnames from "classnames";
 
 export interface ModalProps {
   isShown: boolean;
   hide: () => void;
   modalContent: JSX.Element;
   headerText?: string;
+  classname?: string;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -14,11 +16,12 @@ const Modal: React.FC<ModalProps> = ({
   hide,
   modalContent,
   headerText,
+  classname = "",
 }) => {
   const modal = (
-    <React.Fragment>
+    <div className="Modal">
       <div className="Modal-backdrop" />
-      <div className="Modal-wrapper">
+      <div className={classnames("Modal-wrapper", classname)}>
         <div className="Modal-styledModal">
           <div className="Modal-header">
             <div className="Modal-header-text">{headerText}</div>
@@ -29,7 +32,7 @@ const Modal: React.FC<ModalProps> = ({
           <div className="Modal-content">{modalContent}</div>
         </div>
       </div>
-    </React.Fragment>
+    </div>
   );
 
   return isShown ? ReactDOM.createPortal(modal, document.body) : null;

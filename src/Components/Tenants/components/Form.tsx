@@ -1,11 +1,15 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import Button from "../../Button/Button";
 import Input from "../../Input/Input";
 
 interface Tenant {
   firstname: string;
   lastname: string;
   email: string;
+  document: number;
+  phone: string;
+  address: string;
 }
 
 const Form = () => {
@@ -19,6 +23,18 @@ const Form = () => {
   console.log(errors);
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <Input
+        type="number"
+        min="0"
+        placeholder="Id Document"
+        label="Document"
+        {...register("document", {
+          required: "Document is required.",
+          valueAsNumber: true,
+          min: { value: 0, message: "Min Value is 0" },
+        })}
+        error={errors.document?.message}
+      />
       <Input
         type="text"
         placeholder="firstname"
@@ -42,7 +58,26 @@ const Form = () => {
         error={errors.email?.message}
       />
 
-      <input type="submit" />
+      <Input
+        type="tel"
+        placeholder="Phone"
+        label="Phone"
+        {...register("phone", {
+          required: "Phone is required.",
+          pattern: { value: /^[0-9]*$/, message: "Fill a valid number phone" },
+        })}
+        error={errors.phone?.message}
+      />
+
+      <Input
+        type="text"
+        placeholder="Address"
+        label="Address"
+        {...register("address", { required: "Address is required." })}
+        error={errors.address?.message}
+      />
+
+      <Button type="submit" label="Submit" variant="secondary" />
     </form>
   );
 };

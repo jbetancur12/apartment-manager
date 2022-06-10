@@ -7,4 +7,9 @@
       margin-bottom: 16px;
     }
   }
+
+  &-modalWidth .Modal-content {
+    min-width: 450px;
+    height: calc(100% + 25px);
+  }
 }

@@ -10,13 +10,12 @@ import Form from "./components/Form";
 
 const Tenants = () => {
   const { isShown, toggle } = useModal();
-  const content = <React.Fragment>Hey, I'm a model.</React.Fragment>;
 
   return (
     <div>
       <Button
         label="Add Tenant"
-        type="sucess"
+        variant="sucess"
         icon={<BsPlusLg />}
         onClick={toggle}
         className="Tenants-button_margin"
@@ -24,8 +23,8 @@ const Tenants = () => {
       <Modal
         isShown={isShown}
         hide={toggle}
-        headerText="Hola"
         modalContent={<Form />}
+        classname="Tenants-modalWidth"
       />
       <Table data={data} />
     </div>
